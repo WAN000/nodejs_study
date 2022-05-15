@@ -4,6 +4,7 @@ const port = 5000;
 const bodyParser = require("body-parser");
 const { User } = require("./models/User"); // 유저 가져오기
 
+const config = require("./config/key");
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb+srv://admin:abcd1234@boilerplate.pe3q8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+  .connect(config.mongoURI, {
     // useNewUrlParser: true,
     // useUnifiedTopology: true,
     // useCreateIndex: true,
